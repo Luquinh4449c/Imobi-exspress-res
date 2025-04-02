@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Container, ContainerForm, Form, Label } from "./styles";
@@ -6,13 +7,13 @@ import { AppAuth } from "../../context/AppAuth";
 
 const Login = () => {
   const auth = AppAuth();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
     await auth.authenticate(email, password);
-  }
+  };
 
   return (
     <Container>
@@ -36,9 +37,12 @@ const Login = () => {
           />
           <Button type="submit">Fazer Login</Button>
         </Form>
+        <p>
+          Ainda não possui uma conta? <Link to="/cadastro">Cadastre-se</Link>
+        </p>
       </ContainerForm>
     </Container>
-  )
-}
+  );
+};
 
 export default Login;

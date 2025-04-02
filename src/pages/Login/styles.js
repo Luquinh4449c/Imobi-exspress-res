@@ -18,6 +18,13 @@ export const ContainerForm = styled.div`
   padding: 35px;
   width: 370px;
   background-color: var(--white);
+
+  p {
+   margin-top: 15px;
+   font-size: 1rem;
+   text-align: center;
+   
+  }
 `
 
 export const Form = styled.form`
