@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const urlApi = 'http://localhost:8000';
+// URL de desenvolvimento e produção
+const API_BASE_URL = process.env.NODE_ENV === "production"
+  ? "https://api-imobiexpress-production.up.railway.app" // ✅ URL pública do Railway
+  : "http://localhost:8000"; // 🔧 Localhost para desenvolvimento local
 
 const Api = axios.create({
-  baseURL: 'http://localhost:8000',
-  // headers:{
-  //   'Content-Type': 'application/json'
-  // }
+  baseURL: API_BASE_URL
 });
 
 export default Api;

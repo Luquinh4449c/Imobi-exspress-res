@@ -16,7 +16,7 @@ import PrivateRoute from "../components/PrivateRoute";
 
 const RouterApp = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
@@ -31,4 +31,4 @@ const RouterApp = () => {
   )
 }
 
-export default RouterApp;
+export default RouterApp; 
