@@ -16,19 +16,19 @@ const Login = () => {
   };
 
   return (
-    <Container>
-      <h2>Acesse sua conta</h2>
-      <p>Entre com seu e-mail e senha!</p>
-      <ContainerForm>
-        <Form onSubmit={handleLogin} autoComplete="off">
-          <Label>E-mail</Label>
+    <Container className="flex flex-col px-4 text-center sm:text-left">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-2">Acesse sua conta</h2>
+      <p className="text-base mb-4">Entre com seu e-mail e senha!</p>
+      <ContainerForm className="w-full sm:w-[370px] bg-white p-6 rounded-lg shadow-md">
+        <Form onSubmit={handleLogin} autoComplete="off" className="space-y-3">
+          <Label className="text-left">E-mail</Label>
           <Input
             type="text"
             name="email"
             placeholder="Informe seu E-mail"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Label>Senha</Label>
+          <Label className="text-left">Senha</Label>
           <Input
             type="password"
             name="password"
@@ -37,8 +37,8 @@ const Login = () => {
           />
           <Button type="submit">Fazer Login</Button>
         </Form>
-        <p>
-          Ainda não possui uma conta? <Link to="/cadastro">Cadastre-se</Link>
+        <p className="text-sm mt-4">
+          Ainda não possui uma conta? <Link to="/cadastro" className="text-blue-600 underline">Cadastre-se</Link>
         </p>
       </ContainerForm>
     </Container>

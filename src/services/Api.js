@@ -10,3 +10,4 @@ const Api = axios.create({
 });
 
 export default Api;
+export const urlApi = API_BASE_URL;

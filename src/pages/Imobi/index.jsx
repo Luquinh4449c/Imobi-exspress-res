@@ -1,6 +1,4 @@
-import React, { Fragment } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
@@ -28,12 +26,12 @@ const Imobi = () => {
   useEffect(() => {
     Api.get(`/listimobi/${slug}`)
       .then((response) => {
-        setDataImobi(response.data)
+        setDataImobi(response.data);
       })
       .catch(() => {
-        console.log("Erro: Erro ao listar imóvel")
-      })
-  }, [])
+        console.log("Erro: Erro ao listar imóvel");
+      });
+  }, []);
 
   const {
     tipo,
@@ -56,22 +54,19 @@ const Imobi = () => {
     client_email,
     client_mensagem,
     userId
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     Api.post('/createmessage', dataMessage)
       .then((response) => {
-        if (!response.data.error === true) {
-          toast(response.data.message);
-        } else {
-          toast(response.data.message);
-        }
+        toast(response.data.message);
       })
       .catch(() => {
-        console.log('Erro: Erro no sistema')
-      })
-  }
+        console.log('Erro: Erro no sistema');
+      });
+  };
+
   return (
     <Fragment>
       <TopBanner
@@ -79,36 +74,42 @@ const Imobi = () => {
         descricao={descricao}
         thumb={thumb}
       />
-      <Container>
-        <Left>
+      <Container className="flex flex-col sm:flex-row px-4 sm:px-[150px] gap-6">
+        <Left className="w-full sm:w-2/3">
           <Thumb>
-            <img src={`${urlApi}/uploads/${thumb}`} alt="" />
+            <img src={`${urlApi}/uploads/${thumb}`} alt="" className="w-full h-auto" />
           </Thumb>
           <Description>
-            <h2>{tipo}</h2>
-            <h5>Cidade: {cidade}</h5>
+            <h2 className="text-2xl font-semibold">{tipo}</h2>
+            <h5 className="mt-2">Cidade: {cidade}</h5>
             <h5>Endereço: {endereco}</h5>
-            <p>{descricao}</p>
+            <p className="mt-4">{descricao}</p>
           </Description>
         </Left>
-        <Right>
-          <Profile>
+        <Right className="w-full sm:w-1/3 flex flex-col gap-4">
+          <Profile className="flex gap-4 items-center sm:items-start">
             <ProfileImg>
-              <img src="https://images.unsplash.com/placeholder-avatars/extra-large.jpg?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff" alt="" />
+              <img
+                src="https://images.unsplash.com/placeholder-avatars/extra-large.jpg?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff"
+                alt=""
+                className="rounded-full w-[80px] h-[80px] object-cover"
+              />
             </ProfileImg>
-            <ProfileDescriptin>
-              <h3>{name}</h3>
-              <p>Descrição do usuário</p>
+            <ProfileDescriptin className="text-center sm:text-left">
+              <h3 className="font-bold">{name}</h3>
+              <p className="text-sm text-gray-600">Descrição do usuário</p>
             </ProfileDescriptin>
           </Profile>
-          <ProfileContact>
-            <h3>Informações para contato:</h3>
+
+          <ProfileContact className="text-center sm:text-left">
+            <h3 className="font-bold mb-2">Informações para contato:</h3>
             <p>{telefone}</p>
             <p>{email}</p>
           </ProfileContact>
+
           <ProfileFormContact>
-            <h3>Contate o anunciante</h3>
-            <form onSubmit={handleSubmit} autoComplete="off">
+            <h3 className="font-bold mb-2">Contate o anunciante</h3>
+            <form onSubmit={handleSubmit} autoComplete="off" className="space-y-3">
               <Input
                 type="hidden"
                 name="userId"
@@ -131,13 +132,13 @@ const Imobi = () => {
                 name="client_mensagem"
                 onChange={(e) => setClinteMensagem(e.target.value)}
               ></TextArea>
-              <Button>Enviar mensagem</Button>
+              <Button type="submit">Enviar mensagem</Button>
             </form>
           </ProfileFormContact>
         </Right>
       </Container>
     </Fragment>
-  )
-}
+  );
+};
 
 export default Imobi;
