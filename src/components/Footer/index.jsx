@@ -5,7 +5,7 @@ import {
   FaWhatsapp
 } from "react-icons/fa";
 import LogoImg from "../../assets/logo.png"
-import { Container, Copy, Item } from "./styles";
+import { Container, Copy, Item, ItemMobile } from "./styles";
 
 const Footer = () => {
   return (
@@ -44,14 +44,23 @@ const Footer = () => {
             <li><span>Vender</span></li>
           </ul>
         </Item>
+
+        {/* Item exclusivo para mobile */}
+        <ItemMobile>
+          <h3>Our Services</h3>
+          <ul>
+            <li>Comprar</li>
+            <li>Alugar</li>
+            <li>Vender</li>
+          </ul>
+        </ItemMobile>
       </Container>
+
       <Copy>
         <p>© Copyright 2022 - Workside Tecnologia All Rights Reserved.</p>
         <ul>
-          <li><span>Termos de Uso
-          </span></li>
-          <li><span>Política de Privacidade
-          </span></li>
+          <li><span>Termos de Uso</span></li>
+          <li><span>Política de Privacidade</span></li>
           <li><span>Política de Cookies</span></li>
         </ul>
       </Copy>

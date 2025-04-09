@@ -55,6 +55,8 @@ export const Description = styled.div`
   p {
     margin-bottom: 15px;
     color: var(--secondary);
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 `;
 
@@ -101,6 +103,8 @@ export const ProfileDescriptin = styled.div`
   p {
     margin-bottom: 15px;
     color: var(--secondary);
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 `;
 
@@ -109,6 +113,8 @@ export const ProfileContact = styled.div`
   p {
     margin-bottom: 15px;
     color: var(--secondary);
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 `;
 
@@ -121,5 +127,10 @@ export const ProfileFormContact = styled.div`
   form {
     display: flex;
     flex-direction: column;
+  }
+
+  p {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 `;
